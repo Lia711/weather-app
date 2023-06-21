@@ -1,10 +1,19 @@
 import React from 'react'
 import "./Login.scss"
 import Button from '../Button/Button';
+import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
-    const {handleSubmit} = props;
+    const {handleSubmit, userName} = props;
+    const navigate = useNavigate();
 
+    const handleClick=()=> {
+      if (userName!="") {
+        navigate("/home");
+      } else {
+        alert("Type in a user name")
+      }
+    }
 
     
   return (
@@ -19,7 +28,7 @@ const Login = (props) => {
             onChange = {handleSubmit}
           />
         </form>
-        <Button buttonText={"Continue"}/>
+        <Button buttonText={"Continue"} onClick={handleClick}/>
     </div>
   )
 }
