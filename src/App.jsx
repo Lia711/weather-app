@@ -7,13 +7,9 @@ import { Route, Routes, Router } from "react-router-dom";
 
 function App() {
   const [user, setUser] = useState("default name");
-  
-
-  let userName;
   const handleInput = event => {
     event.preventDefault();
-    userName = event.target.value;
-    setUser(userName) 
+    setUser(event.target.value) 
   }
   return (
     <>
