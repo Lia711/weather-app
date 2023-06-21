@@ -4,11 +4,12 @@ import Button from '../Button/Button';
 import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
-    const {handleSubmit, userName} = props;
+    const {handleSubmit, user} = props;
     const navigate = useNavigate();
 
     const handleClick=()=> {
-      if (userName!="") {
+      console.log("user", user)
+      if (user!="default name") {
         navigate("/home");
       } else {
         alert("Type in a user name")

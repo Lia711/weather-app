@@ -18,7 +18,7 @@ function App() {
   return (
     <>
         <Routes>
-          <Route path="/" element={<Login handleSubmit={handleInput} userName={userName}/>} />
+          <Route path="/" element={<Login handleSubmit={handleInput} user={user}/>} />
           <Route path="/home" element={<Home user={user}/>} />
         </Routes>
     </>
