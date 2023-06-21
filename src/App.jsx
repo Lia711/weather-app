@@ -4,26 +4,35 @@ import { useState } from 'react';
 import Login from './components/Login/Login';
 import Home from './components/Home/Home';
 import Button from './components/Button/Button';
+import { Route, Routes, Router } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 function App() {
   const [user, setUser] = useState("default name");
+  const navigate = useNavigate();
+
   let userName;
-  const handleSubmit = event => {
+  const handleInput = event => {
     event.preventDefault();
+    console.log("username", event)
     userName = event.target.value;
     setUser(userName)
-    if (userName) {
+    //navigate("/home");
+    if (userName!="") {
       setUser(userName);
+      navigate("/home");
     } else {
       alert("Type in a user name")
     }
   }
   return (
-    <div className="App">
-        <Login handleSubmit={handleSubmit}/>
-        <Button buttonText={"Continue"} onClick={handleSubmit}/>
-        <Home user={user} />
-    </div>
+    <>
+        <Routes>
+          <Route path="/" element={<Login handleSubmit={handleInput} />} />
+          <Route path="/home" element={<Home user={user}/>} />
+        </Routes>
+    </>
   );
 }
 
