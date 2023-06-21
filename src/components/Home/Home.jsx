@@ -1,6 +1,8 @@
 import React from 'react'
 import "./Home.scss"
 import Location from '../Location/Location';
+import Weather from '../Weather/Weather';
+
 
 const Home = (props) => {
     const {user} = props;
@@ -19,6 +21,7 @@ const Home = (props) => {
     <div>User Name: {user}</div>
     <p>Good {greetingTime}, {user}!</p>
     <Location/>
+    <Weather/>
     </>
   )
 }
