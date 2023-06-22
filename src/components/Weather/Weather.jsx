@@ -3,7 +3,8 @@ import "./Weather.scss"
 import Button from '../Button/Button';
 
 
-const Weather = () => {
+const Weather = (props) => {
+    const {longitude, latitude} = props;
     const [weather, setWeather] = useState();
     const [forecast, setForecast] = useState();
 
@@ -13,7 +14,7 @@ const Weather = () => {
     }
 
     const getWeather = async()=> {
-        let url = `${api.base}/current.json?key=${api.key}&q=51.473893,-0.020191`;
+        let url = `${api.base}/current.json?key=${api.key}&q=${latitude},${longitude}`;
         const response = await fetch(url);
         const data = await response.json();
         setWeather(data)
@@ -23,7 +24,7 @@ const Weather = () => {
     }
 
     const getForecast = async()=> {
-        let url = `${api.base}/forecast.json?key=${api.key}&q=51.473929,-0.020256&days=7`;
+        let url = `${api.base}/forecast.json?key=${api.key}&${latitude},${longitude}&days=7`;
         const response = await fetch(url);
         const data2 = await response.json();
         setForecast(data2)
