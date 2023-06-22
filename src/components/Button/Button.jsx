@@ -4,7 +4,7 @@ import "./Button.scss"
 const Button = (props) => {
     const {buttonText, onClick} = props;
   return (
-    <button onClick={onClick}>{buttonText} </button>
+    <button className="button" onClick={onClick}>{buttonText} </button>
   )
 }
 
