@@ -1,0 +1,45 @@
+$primary-color: #09c379;
+$secondary-color: #6c757d;
+$background-color: #f8f9fa;
+
+body {
+    background-color: $background-color;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+.home {
+    max-width: 95%;
+    margin: 25px auto;
+    padding: 10px 10px 350px 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+.cards {
+    display: flex;
+    justify-content: space-around;
+}
+
+h1 {
+    font-size: 36px;
+    color: $primary-color;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .card {
+    display: inline-block;
+    width: 30%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+
+
+  

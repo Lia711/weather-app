@@ -17,12 +17,17 @@ const Home = (props) => {
       greetingTime = "Evening";
     }
   return (
-    <>
-    <div>User Name: {user}</div>
-    <p>Good {greetingTime}, {user}!</p>
-    <Location/>
-    <Weather/>
-    </>
+    <div className='home'>
+    <h1>Good {greetingTime}, {user}!</h1>
+    <div className='cards'>
+    <div className='card'>
+      <Location/>
+    </div>
+    <div className='card'>
+      <Weather/>
+    </div>
+    </div>
+    </div>
   )
 }
 

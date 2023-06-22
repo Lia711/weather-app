@@ -19,7 +19,8 @@ const Login = (props) => {
     
   return (
     <div className='login'>
-        <h1>Welcome to Weather App! Please input your name:</h1>
+        <h1>Welcome to Weather App!</h1>
+        <h2>Please input your name:</h2>
         <form className="login-form" >
           <label htmlFor="userName">User Name: </label>
           <input
