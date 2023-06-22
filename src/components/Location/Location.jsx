@@ -4,8 +4,8 @@ import Button from '../Button/Button';
 
 
 const Location = () => {
-    const [latitude, setLatitude] = useState("unknown");
-    const [longitude, setLongitude] = useState("unknown");
+    const [latitude, setLatitude] = useState();
+    const [longitude, setLongitude] = useState();
     const [status, setStatus] = useState();
 
     const getLocation = () => {
@@ -27,8 +27,9 @@ const Location = () => {
     <div className='getLocation'>
         <Button buttonText={"Get Location"} onClick={getLocation}/>
     </div>
-    <p>{status}</p>
-    <p>Location: longitude {longitude}, latitude {latitude}.</p>
+    {longitude ? <><p>{status}</p>
+    <p>Location: longitude {longitude}, latitude {latitude}.</p></>: null } 
+    
     </div>
   )
 }

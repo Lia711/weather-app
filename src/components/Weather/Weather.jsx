@@ -13,7 +13,7 @@ const Weather = () => {
     }
 
     const getWeather = async()=> {
-        let url = `${api.base}/current.json?key=${api.key}&q=q=51.473929,-0.020256`;
+        let url = `${api.base}/current.json?key=${api.key}&q=51.473893,-0.020191`;
         const response = await fetch(url);
         const data = await response.json();
         setWeather(data)
@@ -28,19 +28,22 @@ const Weather = () => {
         const data2 = await response.json();
         setForecast(data2)
         console.log(data2)
+        console.log(weather)
     }
+    console.log(weather)
+    console.log(forecast)
   return (
     <div className='weatherCard'>
     <h3>Weather</h3>
     <div className='content'>
-        <div className='current'>
-            <Button buttonText={"Get Current Weather"} onClick={getWeather}/>
-            <p>Current Weather: {weather}</p>
-        </div>
-        <div className='forecast'>
-            <Button buttonText={"Get Forecast"} onClick={getForecast}/>
-            <p>Forecast: {forecast}</p> 
-        </div>   
+    <Button buttonText={"Get Current Weather"} onClick={getWeather}/>
+        {weather ? <div className='current'>
+            <p>Current Weather: {weather.current.humidity} </p>
+        </div> : null}
+    <Button buttonText={"Get Forecast"} onClick={getForecast}/>
+        {forecast ? <div className='forecast'> 
+            <p>Forecast: </p> 
+        </div> : null}
     </div>
     </div>
   )
