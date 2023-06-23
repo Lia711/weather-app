@@ -15,7 +15,6 @@ const Login = (props) => {
         alert("Type in a user name")
       }
     }
-
     
   return (
     <div className='login'>

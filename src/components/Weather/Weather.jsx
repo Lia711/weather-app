@@ -14,25 +14,18 @@ const Weather = (props) => {
         key: "467423c807784587a4c104145232106",
         base: "http://api.weatherapi.com/v1"
     }
-
     const getWeather = async()=> {
         let url = `${api.base}/current.json?key=${api.key}&q=${latitude},${longitude}`;
         const response = await fetch(url);
         const data = await response.json();
         setWeather(data)
     }
-
     const getForecast = async()=> {
         let url = `${api.base}/forecast.json?key=${api.key}&q=${latitude},${longitude}`;
         const response = await fetch(url);
         const data2 = await response.json();
         setForecast(data2)
-        console.log(data2)
     }
-    console.log(weather)
-   
-    console.log(forecast?.forecast.forecastday[0])
-
     
   return (
     <div className='weatherCard'>
@@ -53,7 +46,11 @@ const Weather = (props) => {
     <Button buttonText={"Get Forecast"} onClick={getForecast}/>
         {forecast ? <div className='forecast'> 
             <p>Showing forecast for {date}</p>
-             <p>Sunrise: {forecast.forecast.forecastday[0].astro.sunrise} </p>
+            <img src={forecast.forecast.forecastday[0].day.condition.icon} alt="" />
+            <p>Condition: {forecast.forecast.forecastday[0].day.condition.text}</p>
+             <p>Sunrise/Sunset: {forecast.forecast.forecastday[0].astro.sunrise}/ {forecast.forecast.forecastday[0].astro.sunset} </p>
+             <p>Min/Max Temperature: {forecast.forecast.forecastday[0].day.mintemp_c} °C/  {forecast.forecast.forecastday[0].day.maxtemp_c} °C</p>
+             <p>Chance of rain: {forecast.forecast.forecastday[0].day.daily_chance_of_rain} %</p>
         </div> : null}
     </div>
     </div>
