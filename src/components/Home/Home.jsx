@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import "./Home.scss"
-import Location from '../Location/Location';
 import Weather from '../Weather/Weather';
 import Button from '../Button/Button';
 
@@ -34,20 +33,16 @@ const Home = (props) => {
       }
   }
 
+  useEffect(()=>{
+    getLocation();
+  },[])
+
   return (
     <div className='home'>
       <h1>Good {greetingTime}, {user}!</h1>
-      <div className='cards'>
-        <div className='card'>
-          <div className='getLocation'>
-              <Button buttonText={"Get Location"} onClick={getLocation}/>
-          </div>
-          <Location longitude={longitude} latitude={latitude} status={status}/>
-        </div>
         <div className='card'>
           <Weather longitude={longitude} latitude={latitude}/>
         </div>
-      </div>
     </div>
   )
 }

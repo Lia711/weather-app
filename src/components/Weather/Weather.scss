@@ -2,9 +2,32 @@ $primary-color: #09c379;
 $secondary-color: #6c757d;
 $background-color: #f8f9fa;
 
-.content {
+.weather-cards {
     display: flex;
-    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.content {
+    display: inline-block;
+    width: 30%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.text {
+    padding-top: 20px;
+}
+
+h4 {
+    font-size: 20px;
+    color: $secondary-color;
+    margin: 0px;
+    padding-bottom:20px;
+
 }
 
 h3 {
